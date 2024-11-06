@@ -1,0 +1,12 @@
+{% extends 'books/parts/base.html' %}
+
+{% block title %}{{book.title}}{% endblock %}
+
+{% block content %}
+    <div class="container pt-4 px-5">
+        <img src="{{book.img.url}}" alt="Book's image" class="img-thumbnail float-start me-3" width="250">
+        <h1 class="text-center">{{book.title}}</h1>
+        <h6 class="text-center">By {{book.author}}</h6>
+        <p>{{book.about | safe}}</p>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'books/parts/base.html' %}
+    
+    {% block title %}Books{% endblock %}
+
+    {% block content %}
+        <section class="library">
+            <div class="container">
+                <h1 class="text-center py-3">My books</h1>
+                <div class="row">
+                    {% for book in books %}
+                        <div class="col-3 mb-5">
+                            <div class="card border-0">
+                                <a href="{% url 'book-detail' book.slug %}">
+                                    <img src="{{book.img.url}}" class="card-img-top card__image" alt="Image of book">
+                                </a>
+                                <div class="card-body">
+                                <h5 class="card-title">{{book.title}}</h5>
+                                <p class="card-text">By {{book.author}}</p>
+                                <!-- <a href="#" class="btn btn-outline-primary d-block fs-5">Read</a> -->
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endblock %}
